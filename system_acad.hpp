@@ -13,11 +13,49 @@
 #ifndef SYSTEM_ACAD_HPP
 #define SYSTEM_ACAD_HPP
 
+#include <iostream>
+#include <vector>
+#include <string>
+
+
 class system_acad {
 public:
     system_acad();
     system_acad(const system_acad& orig);
     virtual ~system_acad();
+    
+    // cabeçalho
+    
+// Struct Professor
+struct Professor {
+    int codigoProfessor;
+    std::string nome;
+    std::string endereco;
+};
+
+// Struct Disciplina
+struct Disciplina {
+    int codigoDisciplina;
+    std::string descricao;
+    int cargaHoraria;
+};
+
+// Struct Atribuicao
+struct Atribuicao {
+    int codigoAtribuicao;
+    std::string dataAtribuicao;
+    int codigoProfessor;
+    int codigoDisciplina;
+};
+
+// Função para adicionar um novo professor
+void adicionarProfessor(std::vector<Professor>& professores);
+
+// Função para adicionar uma nova disciplina
+void adicionarDisciplina(std::vector<Disciplina>& disciplinas);
+
+// Função para atribuir uma disciplina a um professor
+void atribuirDisciplina(std::vector<Atribuicao>& atribuicoes, const std::vector<Professor>& professores, const std::vector<Disciplina>& disciplinas);
    
 private:
 
